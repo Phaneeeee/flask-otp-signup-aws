@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    #welcomeMessage {
+      color: green;
+      font-weight: bold;
+    }
+    #logoutBtn {
+    border: 2px solid red;
+    background-color: white;
+    color: red;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #logoutBtn:hover {
+    background-color: red;
+    color: white;
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Your Dashboard</h2>
+    <p id="welcomeMessage">Logged in successfully!</p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = localStorage.getItem("loggedInEmail");
+      const welcomeMessage = document.getElementById("welcomeMessage");
+      if (email) {
+        welcomeMessage.textContent = `Logged in as: ${email}`;
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInEmail");
+      window.location.href = "/login";
+    });
+  </script>
+</body>
+</html>
