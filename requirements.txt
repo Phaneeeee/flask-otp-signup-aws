@@ -5,3 +5,4 @@ bcrypt
 python-dotenv
 mysql-connector-python
 gunicorn
+Flask-Mail
