@@ -4,7 +4,7 @@ import random
 import smtplib
 from email.message import EmailMessage
 from datetime import datetime, timedelta
-from .config import EMAIL_CONFIG
+from config import EMAIL_CONFIG
 
 def generate_otp():
     return str(random.randint(100000, 999999))
