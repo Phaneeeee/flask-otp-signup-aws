@@ -1,14 +1,16 @@
 import os
+from dotenv import load_dotenv
 
-DB_CONFIG = {
-    "host": os.getenv("MYSQL_ADDON_HOST"),
-    "port": int(os.getenv("MYSQL_ADDON_PORT")),  # cast to int if used
-    "user": os.getenv("MYSQL_ADDON_USER"),
-    "password": os.getenv("MYSQL_ADDON_PASSWORD"),
-    "database": os.getenv("MYSQL_ADDON_DB")
-}
+load_dotenv()
 
-EMAIL_CONFIG = {
-    "EMAIL_ADDRESS": os.getenv("EMAIL_ADDRESS"),
-    "EMAIL_PASSWORD": os.getenv("EMAIL_PASSWORD")
-}
+class Config:
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME")
+    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
+
+    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
