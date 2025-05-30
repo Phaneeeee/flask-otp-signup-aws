@@ -45,21 +45,4 @@ Visit the live project here:
 
 ---
 
-## 🗂️ Project Structure
-
-flask-otp-signup-aws/
-│
-├── Backend/
-│   ├── app.py
-│   ├── config.py
-│   ├── otp_utils.py
-│   └── db_setup.sql
-│
-├── frontend/
-│   ├── templates/
-│   └── static/
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
 
